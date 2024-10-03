@@ -1,0 +1,180 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+  }
+  
+  nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+  }
+  
+  nav ul li {
+    margin: 0 15px;
+  }
+  
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .hero {
+    text-shadow: 2px 2px #2b1d1d;
+    background-color: #333;
+    color: white;
+    font-family: "Papyrus",fantasy;
+    text-align: center;
+    padding: 100px 20px;
+  }
+  
+  .profile-photo {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
+  }
+  
+  .hero h1 {
+    font-size: 2.5rem;
+    font: 2em sans-serif;
+  }
+  
+  .hero p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+  
+  .btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
+  .btn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Projects and Blog Sections */
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  section {
+    padding: 50px 0;
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2rem;
+  }
+  
+  .project-grid, .blog-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  .project, .blog-post {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 48%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  footer {
+    padding-top:200px;
+    background-color: #333;
+    
+  }
+
+  footer p{
+    color: white;
+    text-align: center;
+    font: 700% Monaco;
+  }
+
+  footer div{
+    color: rgb(165, 160, 160);
+    text-align: center;
+    padding-top: 80px;
+    font: small;
+    font: 100% Monaco;
+    padding-bottom: 300px;
+  }
+  
+  footer ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+  }
+  
+  footer ul li {
+    margin: 0 15px;
+  }
+  
+  footer ul li a {
+    color: white;
+    text-transform: uppercase;
+    font-size: medium;
+    padding-inline: 10px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-decoration: none;
+    
+  }
+  
+  footer ul li a:hover {
+    text-decoration: underline;
+  }
+  @media (max-width: 768px) {
+    .project-grid, .blog-grid {
+      flex-direction: column;
+    }
+  
+    .profile-photo {
+      width: 100px;
+      height: 100px;
+    }
+  
+    .hero h1 {
+      font-size: 4rem;
+    }
+  }
+
+  #home {
+    background-image: url(IMG_8091.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; /* Prevents image from repeating */
+    height: 100vh; /* 100% of the viewport height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #contact{
+    align-items: center;
+    height: 100vh;
+    font: font_780l3uzv4;
+  }
+
