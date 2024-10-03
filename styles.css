@@ -13,8 +13,7 @@
   }
   
   header {
-    background-color: #333;
-    color: #fff;
+    background-color: transparent;
     padding: 10px 0;
   }
   
@@ -24,12 +23,9 @@
     list-style: none;
   }
   
-  nav ul li {
+  nav ul a {
     margin: 0 15px;
-  }
-  
-  nav ul li a {
-    color: #fff;
+    color: #333;
     text-decoration: none;
   }
   
@@ -57,49 +53,6 @@
   .hero p {
     font-size: 1.2rem;
     margin-bottom: 20px;
-  }
-  
-  .btn {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-  }
-  
-  .btn:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Projects and Blog Sections */
-  .container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  section {
-    padding: 50px 0;
-  }
-  
-  h2 {
-    text-align: center;
-    margin-bottom: 40px;
-    font-size: 2rem;
-  }
-  
-  .project-grid, .blog-grid {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-  }
-  
-  .project, .blog-post {
-    background-color: white;
-    padding: 20px;
-    border-radius: 5px;
-    width: 48%;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
   
   footer {
