@@ -105,7 +105,7 @@
   footer {
     padding-top:200px;
     background-color: #333;
-    
+    height: 100vh;
   }
 
   footer p{
@@ -120,7 +120,7 @@
     padding-top: 80px;
     font: small;
     font: 100% Monaco;
-    padding-bottom: 300px;
+    padding-bottom: 160px;
   }
   
   footer ul {
@@ -130,14 +130,14 @@
   }
   
   footer ul li {
-    margin: 0 15px;
+    padding-bottom: 3px;
   }
   
   footer ul li a {
     color: white;
     text-transform: uppercase;
     font-size: medium;
-    padding-inline: 10px;
+    padding-inline: 15px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-decoration: none;
     
@@ -171,10 +171,3 @@
     align-items: center;
     justify-content: center;
   }
-
-  #contact{
-    align-items: center;
-    height: 100vh;
-    font: font_780l3uzv4;
-  }
-
