@@ -34,7 +34,7 @@
     background-color: #333;
     color: white;
     font-family: "Papyrus",fantasy;
-    text-align: center;
+    text-align: right;
     padding: 100px 20px;
   }
   
@@ -47,7 +47,7 @@
   
   .hero h1 {
     font-size: 2.5rem;
-    font: 2em sans-serif;
+    font: 2em serif;
   }
   
   .hero p {
@@ -56,15 +56,16 @@
   }
   
   footer {
-    padding-top:200px;
+    
     background-color: #333;
     height: 100vh;
   }
 
   footer p{
+    padding-top:200px;
     color: white;
     text-align: center;
-    font: 700% Monaco;
+    font: 4rem Monaco;
   }
 
   footer div{
@@ -80,13 +81,10 @@
     list-style: none;
     display: flex;
     justify-content: center;
-  }
-  
-  footer ul li {
     padding-bottom: 3px;
   }
   
-  footer ul li a {
+  footer ul ls a{
     color: white;
     text-transform: uppercase;
     font-size: medium;
@@ -95,9 +93,24 @@
     text-decoration: none;
     
   }
+
+  footer h4 a{
+    color: rgb(165, 160, 160);
+    text-decoration: none;
+    font-size: x-large;
+  }
   
-  footer ul li a:hover {
+  footer h4{
+    padding-top: 20px;
+    word-spacing: 15px;
+    padding-bottom: 40px;
+  }
+  footer ul a:hover {
     text-decoration: underline;
+  }
+
+  footer h5{
+    font-size: smaller;
   }
   @media (max-width: 768px) {
     .project-grid, .blog-grid {
@@ -124,3 +137,94 @@
     align-items: center;
     justify-content: center;
   }
+
+
+  /*main*/
+main h1{
+  padding-top: 60px;
+  font-family:'Courier New', Courier, monospace;
+  text-align: center;
+  
+}
+
+
+
+
+
+
+ /*-------------------------*/
+  #Education {
+    max-width: 1000px;
+    margin: 50px auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+    text-align: center;
+    color: #444;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.education-section {
+    margin-bottom: 50px;
+}
+
+.education {
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    background: linear-gradient(145deg, #e6e6e9, #ffffff);
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1), -4px -4px 8px rgba(255, 255, 255, 0.7);
+    transition: transform 0.3s ease-in-out;
+}
+
+.education:hover {
+    transform: scale(1.02);
+}
+
+.education h2 {
+    color: #333;
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.education p {
+    color: #666;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.year {
+    font-weight: 700;
+    color: #007bff;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.institution {
+    font-size: 1.15rem;
+    color: #00796b;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.electives, .projects {
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+/* Adding a footer */
+footer {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 1rem;
+    color: #888;
+}
