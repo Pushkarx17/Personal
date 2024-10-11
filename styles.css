@@ -141,7 +141,7 @@
 
   /*main*/
 main{
-  background-color: rgb(12, 42, 56);
+  background-color: rgb(33,33,33);
   color: #ffffff;
 }
 
@@ -156,6 +156,7 @@ main h1{
 main ul li{
   font-weight: bolder;
   font-size: large;
+  padding: 16px;
 }
 
 main ul div{
