@@ -175,9 +175,9 @@ main ul div{
 
  /*-------------------------*/
   #Education {
-    margin: 30px auto;
+    margin: 30px ;
     background-color: wheat;
-    padding: 150px auto;
+    padding: auto;
     border-radius: 8px;
     box-shadow: 0px 10px 25px rgb(3, 3, 3);
 }
@@ -186,20 +186,20 @@ h3 {
     text-align: center;
     color: #333;
     font-size: 2rem;
-    margin-top: -90px auto;
-    margin-bottom: 60px auto;
+    margin-top: 120px ;
+    margin-bottom: 60px ;
     font-weight: 600;
     letter-spacing: 1px;
     text-transform: uppercase;
 }
 
 .education-section {
-    margin-bottom: 50px auto;
+    margin: 50px ;
 }
 
 .education {
-    padding: 20px auto;
-    margin-bottom: 20px auto;
+    padding: 20px ;
+    margin-bottom: 20px;
     border-radius: 8px;
     background: linear-gradient(145deg, #333, #0d0d0d);
     box-shadow: 4px 4px 8px rgb(3,3,3), -4px -4px 8px rgb(3,3,3);
