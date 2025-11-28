@@ -1,136 +1,493 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Personal website showcasing projects, resume, and blog">
-  <title>Your Name - Personal Website</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-brands/css/uicons-brands.css'>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Qwitcher+Grypen:wght@700&family=Shadows+Into+Light&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <title>Pushkar K U – Personal Site</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+        content="Pushkar K U – MSc Electronic Communications and Computer Engineering student at the University of Nottingham." />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
-<body>
-    
-  <!-- Navigation -->
-  <header>
-    <nav>
-      <ul>
-        <a href="index.html">Home</a>
-        <a href="#Education">Education</a>
-        <a href="cv.html">Resume</a>
-        <a href="#contact">Contact</a>
-      </ul>
-    </nav>
+<body data-theme="dark">
+  <header class="site-header" id="top">
+    <div class="container nav-inner">
+      <div class="brand">
+        <div class="brand-text">
+          <span class="brand-name">Pushkar Kodigehalli Umesh</span>
+          <span class="brand-tagline">Electronics · Embedded · Networking</span>
+        </div>
+      </div>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#interests">Interests</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a class="btn btn-primary" href="CV_Pushkar.pdf" target="_blank" rel="noopener noreferrer">Download CV</a>
+        </div>
+      </nav>
+    </div>
   </header>
 
-  <!-- Header -->
-  <section id="home" class="hero">
-    <div class="container">
-      <h1>Hey</h1>
-    </div>
-  </section>
-  
- <!-- Main Section -->
- <main id="About">
-  <h1 class="shadows-into-light-regular">About Me</h1>
-  <div >
-    <ul>
-      <li class="montserrat-about-title">I built a small rocket.</li><div class="montserrat-about">It's a unique type of fuel specifically designed for model rockets. It's crafted from sugar and contains an oxidizer known as potassium nitrate (KNO3).
-        This was in the early days of 2020, when the lockdown had just commenced. One day, I had this wild idea to construct a massive rocket, so I started by building it small, 
-        experimenting with different ratios of mixtures. Once I had the fuel right, I moved on to the construction phase. I chose large PVC pipes for the light and easy design. 
-        After four or five attempts, I was able to reach heights of six-story buildings. However, I had also wanted to build it even bigger, but unfortunately, that didn't work out.</div>
-      <li class="montserrat-about-title">Self-learning</li><div class="montserrat-about">This was the time after my graduation, when I was eager to learn something new. I started with a basic computer science 
-        course because I had some knowledge of Python and programming. This made me learn more in the course, and one topic that caught my attention was HTML. This led me to design this 
-        website. Later, I started learning Swift and SwiftUI from my playground application on my MacBook.</div>
-      <li class="montserrat-about-title">Electronics</li><div class="montserrat-about">I had an old Windows laptop that I wasn't particularly interested in buying a 
-        new one for. So, I decided to upgrade my current PC on my own. I watched many YouTube videos and learned a lot about computer hardware. I started tearing down my laptop and was 
-        amazed by all the small, tiny components. I upgraded the SSD and storage. Later, I took down my old PC that had a huge HDD. I didn't leave any old devices like the lamp or phone. 
-        I had this old iPhone 7, and the teardown was out of this world. The small chips, motherboard, everything to it, the camera, haptic module—everything was a sight to behold. 
-        Recently, I even took apart my TV to fix it, although I didn't succeed, it was still a fun experience to see all the components inside.</div>
-      <li class="montserrat-about-title">Hobbies</li><div class="montserrat-about">I enjoy swimming at the club, playing cricket with my friends on weekends, and badminton as well. Cycling has always been a part 
-        of my routine, though I don't do it frequently. I prefer early morning rides to the hill or my native place, while at night, I cycle to the cities. In my free time, I love playing 
-        role-playing video games on my consoles and multiplayer games on my phone. </div>
-    </ul>
-  </div>
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-intro">
+          <div class="hero-kicker">MSc · Electronic Communications &amp; Computer Engineering</div>
+          <h1 class="hero-title">
+            Hi, I’m <span class="highlight">Pushkar</span> – building things at the intersection of
+            <span class="highlight">electronics</span> &amp; code.
+          </h1>
+          <p class="hero-tagline">
+            Master’s student at the University of Nottingham with a strong background in embedded systems,
+            VLSI, and networking — comfortable moving between circuits, firmware, and software.
+          </p>
 
- </main>
+          <div class="hero-meta">
+            <div><span>📍</span> <em>Nottingham, UK</em></div>
+            <div><span>🎓</span> <em>University of Nottingham</em></div>
+          </div>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">Let’s talk</a>
+            <a class="btn btn-secondary" href="#education">View education</a>
+          </div>
+        </div>
 
+        <aside class="hero-panel">
+          <div class="hero-panel-inner">
+            <div class="hero-pill">Snapshot</div>
+            <h2 class="hero-panel-heading">From model rockets to modern systems</h2>
+            <p class="hero-panel-body">
+              I enjoy taking things apart — and putting them back together better than before.
+              From building sugar–fuel rockets during lockdown to prototyping mini elevators and RFID gates,
+              I learn best by doing and iterating.
+            </p>
 
- <div id="Education">
-  <h3>My Education</h3>
-  <div class="education-section">
-    <div class="education">
-        <h2>Preschool - Third Standard</h2>
-        <p class="year">2005 - 2011</p>
-        <p><strong>Institution:</strong> Cauvery Public School, Bengaluru</p>
-        <p><strong>Awards:</strong> Best Student (LKG)</p>
-    </div>
-  </div>
-  <div class="education-section">
-      <div class="education">
-          <h2>Fourth - Sixth Standard</h2>
-          <p class="year">2011 - 2014</p>
-          <p><strong>Institution:</strong> Akash International School, Bengaluru</p>
+            <div class="hero-panel-grid">
+              <div class="hero-panel-chip">
+                <span class="label">Current degree</span>
+                <span class="value">MSc Electronic Comms &amp; Computer Eng</span>
+              </div>
+              <div class="hero-panel-chip">
+                <span class="label">Previous degree</span>
+                <span class="value">BSc Physics, Maths &amp; Electronics</span>
+              </div>
+              <div class="hero-panel-chip">
+                <span class="label">Key areas</span>
+                <span class="value">Embedded · IoT · HDL · Networking</span>
+              </div>
+              <div class="hero-panel-chip">
+                <span class="label">Coding</span>
+                <span class="value">C / C++ / Python / Swift / HTML</span>
+              </div>
+            </div>
+
+            <div class="hero-panel-footer">
+              <div>Always curious, always building.</div>
+              <div class="hero-progress" aria-hidden="true">
+                <span></span>
+              </div>
+            </div>
+          </div>
+        </aside>
       </div>
-  </div>
-  <div class="education-section">
-    <div class="education">
-        <h2>Sixth - Tenth Standard</h2>
-        <p class="year">2014 - 2019</p>
-        <p><strong>Institution:</strong> Narayana Olympiad School, Bengaluru</p>
-        <p><strong>Accomplishment:</strong> Survived here!</p>
-    </div>
-  </div>
-  <div class="education-section">
-    <div class="education">
-        <h2> Eleventh and Twelfth Standard (PCMC)</h2>
-        <p class="year">2019 - 2021</p>
-        <p><strong>Institution:</strong> Nagarjuna Vidyaniketan, Bengaluru</p>
-        <p><strong>Additional Projects:</strong> Electrolysis of water, Tetris Game.py</p>
-    </div>
-  </div>
-  <div class="education-section">
-    <div class="education">
-        <h2>Bachelor of Science (Physics, Mathematics, Electronics)</h2>
-        <p class="year">2021 - 2024</p>
-        <p><strong>Institution:</strong> CHRIST (Deemed to be University), Bengaluru</p>
-        <p><strong>Electives:</strong> Financial Planning, Stress Management</p>
-        <p><strong>Additional Projects:</strong> RFID Gate, Mini Elevator using Arduino Uno</p>
-    </div>
-  </div>
- </div>
+    </section>
 
-  <!-- Footer -->
-  <footer id="contact">
-    <p class="qwitcher-grypen-bold">Pushkar K U</p>
-    <div>
-        Student<br>from Bangalore, India.
-    </div>
+    <section id="about">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <div class="section-kicker">About</div>
+            <h2 class="section-title">A bit more about me</h2>
+          </div>
+          <p class="section-subtitle">
+            Hands-on learner, electronics tinkerer, and someone who enjoys turning small experiments into
+            working systems — whether that’s a rocket, an app, or a lab project.
+          </p>
+        </div>
 
-    <ul>
-      <ls><a href="http://www.linkedin.com/in/pushkarku">linkedin</a></ls>
-      <!--<ls><a href="https://github.com/Pushkarx17">github</a></ls>-->
-      <ls><a href="mailto:pushkargowda39923993@gmail.com">Mail</a></ls>
-    </ul>
-    <h4>
-      <a href="https://www.instagram.com/pushkar_x17/"><i class="fi fi-brands-instagram"></i></a>
-      <a href="https://x.com/pushkar_x17"><i class="fi fi-brands-twitter-alt"></i></a>
-      <a href="https://api.whatsapp.com/send/?phone=919972559662&text&type=phone_number&app_absent=0"><i class="fi fi-brands-whatsapp"></i></a>
-    </h4>
-    
-        
-    
-    <h5>
-      Copyright © PUSHKAR K U 2024
-    </h5>
+        <div class="cards-grid">
+          <article class="card">
+            <div class="card-icon">🚀</div>
+            <div class="card-meta">Lockdown experiments</div>
+            <h3 class="card-title">Built and launched a model rocket</h3>
+            <div class="card-body">
+              <p>
+                During the 2020 lockdown, I designed and tested my own sugar–based rocket fuel using potassium
+                nitrate, then built a PVC-based rocket airframe.
+              </p>
+              <p>
+                After several iterations, I reached heights comparable to a six-storey building — and learnt a lot
+                about experimentation, safety, and persistence.
+              </p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">🧠</div>
+            <div class="card-meta">Self-learning</div>
+            <h3 class="card-title">From HTML to Swift and beyond</h3>
+            <div class="card-body">
+              <p>
+                After my BSc, I doubled down on computing fundamentals and web technologies, starting with HTML and CSS
+                to create this personal site.
+              </p>
+              <p>
+                I later moved into Swift and SwiftUI using Xcode and Swift Playgrounds, building iOS apps like LivingSolo
+                to solve real problems I face day to day.
+              </p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">🔧</div>
+            <div class="card-meta">Hardware curiosity</div>
+            <h3 class="card-title">Taking devices apart (carefully)</h3>
+            <div class="card-body">
+              <p>
+                I enjoy understanding hardware from the inside: upgrading SSDs and storage, disassembling old laptops
+                and an iPhone 7, and even opening up a TV to try to fix it.
+              </p>
+              <p>
+                These teardowns keep me grounded in how real systems are built, not just how they look in simulations
+                or diagrams.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <div class="section-kicker">Education</div>
+            <h2 class="section-title">Academic path</h2>
+          </div>
+          <p class="section-subtitle">
+            A mix of electronics, computing, physics, and mathematics — giving me both hands-on engineering skills and
+            strong analytical foundations.
+          </p>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="timeline-header">
+              <h3 class="timeline-title">MSc Electronic Communications &amp; Computer Engineering</h3>
+              <div class="timeline-sub">University of Nottingham · Nottingham, UK</div>
+              <div class="timeline-meta">2025 – present</div>
+            </div>
+            <div class="timeline-body">
+              <ul>
+                <li>
+                  Modules include Advanced Computational Engineering, Artificial Intelligence &amp; Intelligent
+                  Systems, HDL for Programmable Devices, and Scalable Cross-Platform Software Design.
+                </li>
+                <li>
+                  Strengthening algorithm design, data analysis, and modern techniques for communication systems and
+                  electronic engineering.
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-header">
+              <h3 class="timeline-title">BSc Physics, Mathematics &amp; Electronics</h3>
+              <div class="timeline-sub">CHRIST (Deemed to be University) · Bengaluru, India</div>
+              <div class="timeline-meta">2021 – 2024</div>
+            </div>
+            <div class="timeline-body">
+              <ul>
+                <li>
+                  Electronics modules: Embedded Systems &amp; IoT Fundamentals, Digital Signal &amp; System Architecture,
+                  Verilog &amp; FPGA-Based Design, Communication Electronics.
+                </li>
+                <li>
+                  Mathematics and physics modules (e.g. Real Analysis, Waves and Optics, Renewable Energy) reinforced
+                  problem-solving and quantitative reasoning.
+                </li>
+                <li>
+                  Built hands-on projects including an RFID gate system and a mini elevator using Arduino.
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-header">
+              <h3 class="timeline-title">Schooling</h3>
+              <div class="timeline-sub">Bengaluru, India</div>
+              <div class="timeline-meta">2005 – 2021</div>
+            </div>
+            <div class="timeline-body">
+              <ul>
+                <li>
+                  Studied at Cauvery Public School, Akash International School, Narayana Olympiad School, and
+                  Nagarjuna Vidyaniketan, with PCMC (Physics, Chemistry, Maths, Computer Science) in 11th–12th.
+                </li>
+                <li>
+                  Early recognition with awards such as “Best Student (LKG)” and a running theme of surviving
+                  intense academic environments with humour and resilience.
+                </li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <div class="section-kicker">Skills</div>
+            <h2 class="section-title">What I work with</h2>
+          </div>
+          <p class="section-subtitle">
+            Comfortable oscillating between low-level embedded work, higher-level software, and the tooling required to
+            get real projects shipped.
+          </p>
+        </div>
+
+        <div class="skills-layout">
+          <div>
+            <h3 class="skills-group-title">Core technical stack</h3>
+            <p class="skills-group-list">
+              Strong foundation across C, C++, Python, Verilog, and embedded systems, with growing experience in Swift,
+              SwiftUI, MySQL, and web technologies.
+            </p>
+            <div style="margin-top:1rem;" class="pill-group">
+              <span class="pill">C</span>
+              <span class="pill">C++</span>
+              <span class="pill">Python</span>
+              <span class="pill">Verilog</span>
+              <span class="pill">Embedded Systems</span>
+              <span class="pill">IoT</span>
+              <span class="pill">Arduino</span>
+              <span class="pill">MySQL</span>
+              <span class="pill">HTML</span>
+              <span class="pill">Swift / SwiftUI</span>
+              <span class="pill">Networking (CCNA fundamentals)</span>
+            </div>
+          </div>
+
+          <div class="skills-groups">
+            <div>
+              <div class="skills-group-title">Software &amp; tools</div>
+              <div class="skills-group-list">
+                <span>VS Code · Xcode · Git &amp; GitHub</span>
+                <span>Final Cut Pro · Ghidra</span>
+              </div>
+            </div>
+            <div>
+              <div class="skills-group-title">Engineering strengths</div>
+              <div class="skills-group-list">
+                <span>Problem-solving &amp; debugging</span>
+                <span>Attention to detail</span>
+                <span>Team collaboration &amp; communication</span>
+                <span>Time management</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <div class="section-kicker">Projects</div>
+            <h2 class="section-title">Things I’ve built</h2>
+          </div>
+          <p class="section-subtitle">
+            A selection of recent work — from iOS apps and personal websites to embedded systems prototypes.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+          <article class="card project-card">
+            <div class="project-header">
+              <h3 class="project-name">LivingSolo – iOS App</h3>
+              <span class="project-meta">2025 · SwiftUI · SwiftData</span>
+            </div>
+            <div class="project-body">
+              <p>
+                An iOS app to help individuals living alone manage kitchen inventory, personal expenses, and to-do lists
+                in one place.
+              </p>
+              <ul>
+                <li>
+                  Designed multiple SwiftUI views for budgeting, inventory, and tasks using a tab-based layout.
+                </li>
+                <li>
+                  Integrated SwiftData for secure local storage and persistent user preferences.
+                </li>
+                <li>
+                  Focused on a clean, minimal interface that surfaces totals and insights clearly.
+                </li>
+              </ul>
+              <div class="project-links">
+                <a href="https://github.com/Pushkarx17" target="_blank" rel="noopener noreferrer">View code on GitHub</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project-card">
+            <div class="project-header">
+              <h3 class="project-name">Personal website</h3>
+              <span class="project-meta">2025 · HTML &amp; CSS</span>
+            </div>
+            <div class="project-body">
+              <p>
+                A multi-page portfolio at <strong>pushkarx17.online</strong> to showcase my projects, CV, and story.
+              </p>
+              <ul>
+                <li>Hand-crafted static pages with responsive layouts using semantic HTML and CSS.</li>
+                <li>Hosted via GitHub Pages with a custom domain.</li>
+                <li>Serves as a living record of what I’ve been learning and building.</li>
+              </ul>
+              <div class="project-links">
+                <a href="https://pushkarx17.online" target="_blank" rel="noopener noreferrer">Visit live site</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project-card">
+            <div class="project-header">
+              <h3 class="project-name">RFID Gate &amp; Mini Elevator</h3>
+              <span class="project-meta">2024 · Arduino · Embedded</span>
+            </div>
+            <div class="project-body">
+              <p>
+                University project combining automation and control with real-time microcontroller programming.
+              </p>
+              <ul>
+                <li>
+                  Implemented an RFID-based gate that reads tags and controls gate movement with motors and relays.
+                </li>
+                <li>
+                  Built a mini elevator model with buttons, switches, LEDs, and an LCD for floor selection and status.
+                </li>
+                <li>
+                  Wrote Arduino sketches to coordinate I/O operations, motor control, and display updates.
+                </li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="interests">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <div class="section-kicker">Interests</div>
+            <h2 class="section-title">Outside the lab</h2>
+          </div>
+          <p class="section-subtitle">
+            A mix of movement, exploration, and games — I like staying active and curious both offline and on-screen.
+          </p>
+        </div>
+
+        <div class="interests-layout">
+          <div>
+            <div class="card">
+              <div class="card-icon">🏏</div>
+              <div class="card-meta">Balance</div>
+              <h3 class="card-title">Keeping active</h3>
+              <div class="card-body">
+                <p>
+                  I enjoy swimming at the club, playing cricket and badminton with friends on weekends, and cycling —
+                  either early-morning rides towards the hills or late-night rides into the city.
+                </p>
+                <p>
+                  When I’m indoors, you’ll often find me playing role-playing games on consoles or co-op games on my
+                  phone to unwind.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <ul class="interests-list">
+              <li>Electronics teardowns and small repair attempts (even when they don’t always work out).</li>
+              <li>Exploring new tech trends and frameworks, especially around embedded systems and AI.</li>
+              <li>Travelling and experiencing new cities and cultures first-hand.</li>
+              <li>Self-paced learning through online courses, documentation, and experiments.</li>
+            </ul>
+            <p class="interests-note">
+              Overall theme: I like understanding how things work — then seeing how far I can push them.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <div class="section-kicker">Contact</div>
+            <h2 class="section-title">Let’s build something</h2>
+          </div>
+          <p class="section-subtitle">
+            Open to internships, part-time roles, and project collaborations in embedded systems, networking, and
+            software engineering.
+          </p>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-text">
+            <p>
+              If you’d like to chat about a project, a role, or even just compare notes on electronics and
+              experimentation, feel free to reach out. Email is usually the fastest way to get a response.
+            </p>
+            <p>
+              I’m currently based in Nottingham while studying, but I’m originally from Bengaluru, India — and I enjoy
+              working with people across time zones and backgrounds.
+            </p>
+          </div>
+
+          <div class="contact-items">
+            <div class="contact-item">
+              <span class="label">Email</span>
+              <a href="mailto:pushkargowda39923993@gmail.com">pushkargowda39923993@gmail.com</a>
+            </div>
+            <div class="contact-item">
+              <span class="label">Location</span>
+              <span>Nottingham, United Kingdom</span>
+            </div>
+            <div class="contact-item">
+              <span class="label">LinkedIn</span>
+              <a href="https://linkedin.com/in/pushkarku" target="_blank" rel="noopener noreferrer">linkedin.com/in/pushkarku</a>
+            </div>
+            <div class="contact-item">
+              <span class="label">GitHub</span>
+              <a href="https://github.com/Pushkarx17" target="_blank" rel="noopener noreferrer">github.com/Pushkarx17</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <span>© <strong>Pushkar K U</strong> · <span id="year">2025</span> · Built with AI assistance.</span>
+    </div>
   </footer>
 
-  <script src="script.js"></script>
 </body>
-
 </html>
