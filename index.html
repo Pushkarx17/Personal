@@ -12,240 +12,177 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="canonical" href="https://pushkarx17.online/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100..800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <header>
-    <div class="container header-inner">
-      <a href="#" class="brand">Pushkar K U</a>
-      <nav>
-        <a href="#about">About</a>
-        <a href="#education">Education</a>
-        <a href="#projects">Projects</a>
-        <a href="#experience">Experience</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-        <a href="Pushkar_Resume.pdf" target="_blank" rel="noopener" class="nav-cv">CV</a>
-      </nav>
-    </div>
-  </header>
+  <div class="page">
+    <div class="grid">
 
-  <main>
+      <!-- LEFT COLUMN -->
+      <div class="col-left">
 
-    <section id="intro">
-      <div class="container">
-        <div class="intro-grid">
-          <div class="intro-text">
-            <h1>Pushkar Kodigehalli Umesh</h1>
-            <p class="intro-role">MSc Electronic Communications &amp; Computer Engineering · University of Nottingham</p>
-            <p class="intro-bio">
-              I work across the full stack of engineering — from FPGA hardware cores and embedded systems
-              to iOS apps and signal processing algorithms. Currently building a software-defined GNSS receiver
-              for a CubeSat interference-mapping mission.
-            </p>
-            <div class="intro-links">
-              <span>Nottingham, UK</span>
-              <a href="mailto:pushkar.uk@outlook.com">pushkar.uk@outlook.com</a>
-              <a href="https://linkedin.com/in/pushkarku" target="_blank" rel="noopener">linkedin.com/in/pushkarku</a>
-              <a href="https://github.com/pushkarx17" target="_blank" rel="noopener">github.com/pushkarx17</a>
+        <header class="fade-item" style="animation-delay:.05s">
+          <h1 class="name">Pushkar <span class="dim">Kodigehalli Umesh</span></h1>
+        </header>
+
+        <div class="terminal fade-item" style="animation-delay:.15s" aria-label="about me, terminal style">
+          <div class="term-line"><span class="prompt">$</span> whoami</div>
+          <div class="term-out">engineer. building intelligent systems across ai, machine learning, embedded systems and gnss signal processing.</div>
+          <div class="term-line"><span class="prompt">$</span> pwd</div>
+          <div class="term-out"><a href="https://maps.google.com/?q=52.946894,-1.166078" target="_blank" rel="noopener" class="arrow-link"><span class="underline-text">52.946894,-1.166078</span></a> — nottingham, uk</div>
+          <div class="term-line"><span class="prompt">$</span> uptime</div>
+          <div class="term-out" id="uptime">22 years</div>
+          <div class="term-line"><span class="prompt">$</span> <span class="cursor"></span></div>
+        </div>
+
+        <div class="bio fade-item" style="animation-delay:.2s">
+          <p class="meta-block">
+            <a href="mailto:pushkar.uk@outlook.com" class="arrow-link"><span class="underline-text scramble">pushkar.uk@outlook.com</span></a>
+          </p>
+          <p class="stack">python · vhdl · swift · matlab · qgis · C++ · NumPy · pandas · RINEX · NMEA · Raspberry Pi · Arduino · Git · Linux</p>
+        </div>
+
+        <div class="photo-wrap fade-item" style="animation-delay:.25s">
+          <img src="IMG_8091.jpg" alt="Pushkar Kodigehalli Umesh" class="photo">
+        </div>
+
+        <div class="elsewhere fade-item" style="animation-delay:.35s">
+          <h3>Elsewhere</h3>
+          <ul>
+            <li><a href="https://linkedin.com/in/pushkarku" target="_blank" rel="noopener" class="arrow-link"><span class="underline-text scramble">linkedin</span></a></li>
+            <li><a href="https://github.com/pushkarx17" target="_blank" rel="noopener" class="arrow-link"><span class="underline-text scramble">github</span></a></li>
+            <li><a href="Pushkar_Resume.pdf" target="_blank" rel="noopener" class="arrow-link"><span class="underline-text scramble">résumé</span></a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="col-spacer"></div>
+
+      <!-- RIGHT COLUMN -->
+      <div class="col-right">
+
+        <div>
+          <h3 class="fade-item" style="animation-delay:.2s">Now</h3>
+
+          <div class="item fade-item" style="animation-delay:.3s">
+            <div class="num">01</div>
+            <div class="title">GNSS Interference Analysis Using AI</div>
+            <div class="subtitle">
+               developing machine learning models to detect, classify and map GNSS interference using satellite-derived signal quality metrics.
             </div>
+            <div class="meta">msc dissertation, 2026 -</div>
           </div>
-          <div class="intro-photo-wrap">
-            <img src="IMG_8091.jpg" alt="Pushkar Kodigehalli Umesh" class="intro-photo">
+
+          <div class="item fade-item" style="animation-delay:.5s">
+            <div class="num">02</div>
+            <div class="title">geoAI @
+              <a href="https://www.geospatialventures.co.uk" target="_blank" rel="noopener" class="arrow-link"><span class="underline-text scramble">Geospatial Ventures Ltd </span></a></div>
+            <div class="subtitle">
+                  applying python, machine learning, and geospatial analysis to process GNSS, SAR, and environmental sensor data.
+            </div>
+            <div class="meta">GeoAI Intern, 2026 –</div>
           </div>
+
+          <div class="item fade-item" style="animation-delay:.4s">
+            <div class="num">03</div>
+            <div class="title">
+              building <a href="https://github.com/Pushkarx17/LivingSolo" target="_blank" rel="noopener" class="arrow-link"><span class="underline-text scramble">livingsolo</span></a>
+            </div>
+            <div class="subtitle">
+              ios app for kitchen inventory, expenses, to-dos. swiftui + swiftdata, no backend.
+            </div>
+            <div class="meta">since jan 2026 </div>
+          </div>
+
+         
         </div>
-      </div>
-    </section>
+        <div>
+          <h3 class="fade-item" style="animation-delay:.2s">Journey</h3>
 
-    <section id="about">
-      <div class="container">
-        <h2>About</h2>
-        <p class="about-text">
-          I learn by taking things apart. During the 2020 lockdown I built a model rocket from scratch —
-          homemade sugar fuel, a PVC airframe, several failed launches — until it finally worked. That same
-          instinct drives everything I do now: whether it's debugging timing constraints on an FPGA, tracing
-          a bug in a SwiftData schema, or tuning tracking loops in a GNSS receiver. I find a problem I
-          can't ignore and build until it's solved.
-        </p>
-      </div>
-    </section>
-
-    <section id="education">
-      <div class="container">
-        <h2>Education</h2>
-
-        <div class="entry">
-          <div class="entry-head">
-            <h3>MSc Electronic Communications &amp; Computer Engineering</h3>
-            <span class="date">2025 – present</span>
+          <div class="item fade-item" style="animation-delay:.4s">
+            <div class="num">2026</div>
+            <div class="title">freelance engineer</div>
+            <div class="subtitle">
+              installed and configured two cisco board pro g2 videoconferencing systems on-site at Infosys in Leeds.             </div>
+            <div class="meta">march 2026</div>
           </div>
-          <p class="entry-sub">University of Nottingham · Nottingham, UK</p>
-          <ul>
-            <li>Advanced Computational Engineering</li>
-            <li>Artificial Intelligence and Intelligent Systems</li>
-            <li>HDL for Programmable Devices</li>
-            <li>Scalable Cross-Platform Software Design</li>
-          </ul>
-        </div>
 
-        <div class="entry">
-          <div class="entry-head">
-            <h3>BSc Physics, Mathematics &amp; Electronics</h3>
-            <span class="date">2021 – 2024</span>
+          <div class="item fade-item" style="animation-delay:.45s">
+            <div class="num">2025</div>
+            <div class="title">aws fundamentals</div>
+            <div class="subtitle">
+              completed cloud fundamentals training — compute, storage and networking services.
+            </div>
+            <div class="meta">certification</div>
           </div>
-          <p class="entry-sub">CHRIST (Deemed to be University) · Bengaluru, India</p>
-          <ul>
-            <li>Embedded Systems and IoT Fundamentals</li>
-            <li>Digital Signal and System Architecture</li>
-            <li>Verilog and FPGA-Based Design</li>
-            <li>Communication Electronics</li>
-          </ul>
-        </div>
 
-      </div>
-    </section>
-
-    <section id="projects">
-      <div class="container">
-        <h2>Projects</h2>
-
-        <div class="entry featured">
-          <div class="entry-head">
-            <h3>GNSS Signal Processing for Interference Mapping — JamSail CubeSat</h3>
-            <span class="badge">Dissertation</span>
-            <span class="date">2026</span>
+          <div class="item fade-item" style="animation-delay:.3s">
+            <div class="num">2024</div>
+            <div class="title">bsc physics, maths &amp; electronics</div>
+            <div class="subtitle">
+              physics — mechanics, electromagnetism, quantum. maths — linear algebra,
+              calculus. electronics — embedded systems, verilog/fpga, dsp.
+            </div>
+            <div class="meta">christ university, India</div>
           </div>
-          <p class="entry-sub">MSc Dissertation · University of Nottingham · Supervised by Paul Blunt, Nottingham Geospatial Institute</p>
-          <ul>
-            <li>Developing a software-defined GNSS receiver in MATLAB with FFT-based parallel acquisition and DLL/PLL/FLL tracking loops for L1 C/A signals under LEO Doppler conditions (±10 kHz).</li>
-            <li>Translating validated algorithms into synthesisable VHDL for a Xilinx Zynq 7030 SoC-FPGA, targeting ≤70% LUT utilisation within CubeSat power constraints.</li>
-            <li>Validating hardware-in-the-loop with the Skydel GNSS simulator and NT1065 RF front-end via AXI bus.</li>
-            <li>Contributing to JamSail — a dual-antenna CubeSat for real-time GNSS jamming and spoofing detection, aligned with the UK's £13M national monitoring programme.</li>
-          </ul>
-        </div>
 
-        <div class="entry">
-          <div class="entry-head">
-            <h3>Matrix Processing Core in VHDL</h3>
-            <span class="date">2025 – 2026</span>
+          <div class="item fade-item" style="animation-delay:.5s">
+            <div class="num">2024</div>
+            <div class="title">rfid gate &amp; mini elevator</div>
+            <div class="subtitle">
+              arduino-based automated gate and floor-selecting elevator model.
+            </div>
+            <div class="meta">final year project</div>
           </div>
-          <p class="entry-sub">HDL Coursework · University of Nottingham</p>
-          <ul>
-            <li>Designed a synthesisable matrix multiplication core on an AMD Xilinx FPGA using dual MAC units and dual-port block RAM buffers for efficient data flow.</li>
-            <li>Built a VHDL testbench with file I/O to load input matrices and validate outputs against a MATLAB reference model.</li>
-          </ul>
-        </div>
 
-        <div class="entry">
-          <div class="entry-head">
-            <h3>Neural Network — Perceptron &amp; Multi-Class Classification</h3>
-            <span class="date">2025 – 2026</span>
+          <div class="item fade-item" style="animation-delay:.6s">
+            <div class="num">2021</div>
+            <div class="title">the rocket that started it</div>
+            <div class="subtitle">
+              lockdown model rocket — homemade sugar fuel, pvc airframe, several failed
+              launches, then it flew.
+            </div>
+            <div class="meta"></div>
           </div>
-          <p class="entry-sub">AI Coursework · University of Nottingham</p>
-          <ul>
-            <li>Implemented the Perceptron Learning Law from first principles in MATLAB to train a binary NOR gate classifier.</li>
-            <li>Extended to a 4-class problem using one-vs-rest strategy; analysed decision boundaries and misclassification rates across iterations.</li>
-          </ul>
-        </div>
-
-        <div class="entry">
-          <div class="entry-head">
-            <h3>LivingSolo — iOS App</h3>
-            <span class="date">Jan 2026 – present</span>
-          </div>
-          <p class="entry-sub">Personal Project</p>
-          <ul>
-            <li>Full iOS app for kitchen inventory, expense tracking, and to-do management built with SwiftUI and SwiftData.</li>
-            <li>Multi-view TabView architecture with schema-driven persistent local storage — no third-party backend.</li>
-            <li>Managed the full development lifecycle independently: design, build, test, and iterative refinement in Xcode.</li>
-          </ul>
-          <div class="project-links">
-            <a href="https://github.com/pushkarx17" target="_blank" rel="noopener">View on GitHub</a>
-          </div>
-        </div>
-
-        <div class="entry">
-          <div class="entry-head">
-            <h3>RFID Gate System &amp; Mini Elevator</h3>
-            <span class="date">April 2024</span>
-          </div>
-          <p class="entry-sub">Final Year Project · CHRIST University</p>
-          <ul>
-            <li>Built an RFID-based automated gate and a floor-selecting elevator model using Arduino microcontrollers.</li>
-            <li>Programmed real-time I/O operations, motor control, and an LCD status display.</li>
-          </ul>
         </div>
 
       </div>
-    </section>
 
-    <section id="experience">
-      <div class="container">
-        <h2>Experience</h2>
-
-        <div class="entry">
-          <div class="entry-head">
-            <h3>Freelance Technical Support Engineer</h3>
-            <span class="date">March 2026</span>
-          </div>
-          <p class="entry-sub">Infosys (Secondary Engineer) · Leeds, UK</p>
-          <ul>
-            <li>Assisted on-site installation and configuration of Cisco Board Pro 52 G2 enterprise videoconferencing systems.</li>
-            <li>Completed two full installations alongside the primary engineer; hands-on exposure to enterprise AV, cable management, device configuration, and system testing.</li>
-          </ul>
-        </div>
-
-      </div>
-    </section>
-
-    <section id="skills">
-      <div class="container">
-        <h2>Skills</h2>
-        <div class="skills-grid">
-          <div class="skill-group">
-            <h4>Programming</h4>
-            <p>Python · C · C++ · Swift (SwiftUI, SwiftData) · SQL · HTML · CSS</p>
-          </div>
-          <div class="skill-group">
-            <h4>Hardware &amp; Embedded</h4>
-            <p>VHDL · Verilog · FPGA (Xilinx Vivado) · Microcontrollers · RFID · IoT · Arduino</p>
-          </div>
-          <div class="skill-group">
-            <h4>Signal Processing &amp; ML</h4>
-            <p>MATLAB · DSP · Communication Systems · Neural Networks · NumPy · Data Analysis</p>
-          </div>
-          <div class="skill-group">
-            <h4>Cloud &amp; Networking</h4>
-            <p>AWS Fundamentals · CCNA Fundamentals · TCP/IP · Linux (basic)</p>
-          </div>
-          <div class="skill-group">
-            <h4>Tools</h4>
-            <p>Vivado · VS Code · Xcode · Git · GitHub · Final Cut Pro</p>
-          </div>
-          <div class="skill-group">
-            <h4>Certifications</h4>
-            <p>AI, Cybersecurity &amp; IT Fundamentals — IBM SkillsBuild (Feb 2025) · AWS Fundamentals — Magic Bus India Foundation (2025)</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer id="contact">
-    <div class="container">
-      <p class="footer-name">Pushkar Kodigehalli Umesh <span class="muted">· Nottingham, UK</span></p>
-      <div class="footer-links">
-        <a href="mailto:pushkar.uk@outlook.com">pushkar.uk@outlook.com</a>
-        <a href="tel:+447818147013">07818 147013</a>
-        <a href="https://linkedin.com/in/pushkarku" target="_blank" rel="noopener">linkedin.com/in/pushkarku</a>
-        <a href="https://github.com/pushkarx17" target="_blank" rel="noopener">github.com/pushkarx17</a>
-        <a href="Pushkar_Resume.pdf" target="_blank" rel="noopener">Download CV</a>
-      </div>
-      <p class="footer-copy">© 2026 Pushkar Kodigehalli Umesh</p>
     </div>
-  </footer>
 
+    <div class="stats fade-item" style="animation-delay:.6s">
+      <div class="stat">
+        <div class="stat-num">8+</div>
+        <div class="stat-label">projects</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">20+</div>
+        <div class="stat-label">technologies</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">4</div>
+        <div class="stat-label">languages spoken</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">5+</div>
+        <div class="stat-label">years coding</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">2</div>
+        <div class="stat-label">countries lived in</div>
+      </div>
+    </div>
+
+    <footer class="page-footer fade-item" style="animation-delay:.7s">
+      &copy; 2026 Pushkar Kodigehalli Umesh.
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
