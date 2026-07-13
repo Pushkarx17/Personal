@@ -4,6 +4,7 @@ const API_URL = "/api/todos";
 
 let items = [];
 let syncState = "loading"; // loading | synced | offline | auth
+let authRejected = false;
 let pushTimer = null;
 
 /* ----- local cache ----- */
@@ -48,12 +49,20 @@ async function pullFromServer() {
       headers: { Authorization: `Bearer ${token}` },
     });
     if (res.status === 401) {
+      authRejected = true;
       setSyncState("auth");
       return;
     }
     if (!res.ok) throw new Error(`http ${res.status}`);
     const data = await res.json();
     if (Array.isArray(data.items)) {
+      if (data.items.length === 0 && items.length > 0) {
+        // server is empty but this device has items (e.g. saved before
+        // sync existed) — upload them instead of wiping the local copy
+        setSyncState("synced");
+        pushToServer();
+        return;
+      }
       items = data.items;
       saveCache();
       render();
@@ -82,6 +91,7 @@ function pushToServer() {
         body: JSON.stringify({ items }),
       });
       if (res.status === 401) {
+        authRejected = true;
         setSyncState("auth");
         return;
       }
@@ -101,7 +111,9 @@ function updateStatus() {
     loading: " · syncing…",
     synced: " · synced",
     offline: " · offline, saved on this device",
-    auth: " · enter sync token above",
+    auth: authRejected
+      ? " · token rejected — check for typos and try again"
+      : " · enter sync token above",
   }[syncState];
 
   if (!items.length) {
@@ -192,6 +204,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!token) return;
     localStorage.setItem(TOKEN_KEY, token);
     tokenInput.value = "";
+    authRejected = false;
     setSyncState("loading");
     pullFromServer();
   });
