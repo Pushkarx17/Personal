@@ -1,0 +1,7 @@
+name = "personal"
+compatibility_date = "2026-07-13"
+pages_build_output_dir = "."
+
+[[kv_namespaces]]
+binding = "TODOS"
+id = "2b56fa4c9c8e48d2805d700608f2c62d"

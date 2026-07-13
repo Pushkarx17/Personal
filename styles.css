@@ -507,6 +507,16 @@ a {
   color: var(--text);
 }
 
+.todo-auth {
+  border-top: none;
+  padding-top: 0;
+  margin-bottom: 0.9rem;
+}
+
+.todo-auth[hidden] {
+  display: none;
+}
+
 .todo-status {
   margin-top: 0.9rem;
   font-size: 0.72rem;

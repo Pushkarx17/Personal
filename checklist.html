@@ -30,6 +30,12 @@
 
       <ul class="todo-list" id="todo-list"></ul>
 
+      <form class="todo-form todo-auth" id="todo-auth" hidden>
+        <span class="prompt" aria-hidden="true">$</span>
+        <input type="password" id="todo-token" class="todo-input" placeholder="sync token…" autocomplete="current-password" aria-label="sync token">
+        <button type="submit" class="todo-add">unlock</button>
+      </form>
+
       <form class="todo-form" id="todo-form">
         <span class="prompt" aria-hidden="true">$</span>
         <input type="text" id="todo-input" class="todo-input" placeholder="new task…" autocomplete="off" maxlength="120" aria-label="new task">
