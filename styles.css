@@ -351,3 +351,8 @@ a {
   }
 }
 
+/* ===== NARROW PAGE (404) ===== */
+.page-narrow {
+  max-width: 40rem;
+}
+

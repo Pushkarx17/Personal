@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 · Pushkar Kodigehalli Umesh</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100..800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+  <div class="page page-narrow">
+
+    <header class="fade-item" style="animation-delay:.05s">
+      <h1 class="name">4<span class="dim">04</span></h1>
+    </header>
+
+    <div class="terminal fade-item" style="animation-delay:.15s" aria-label="page not found">
+      <div class="term-line"><span class="prompt">$</span> cd <span id="missing-path">/this-page</span></div>
+      <div class="term-out">cd: no such file or directory</div>
+      <div class="term-line"><span class="prompt">$</span> cd ~</div>
+      <div class="term-out"><a href="/" class="arrow-link"><span class="underline-text">back home</span></a></div>
+      <div class="term-line"><span class="prompt">$</span> <span class="cursor"></span></div>
+    </div>
+
+    <footer class="page-footer fade-item" style="animation-delay:.3s">
+      &copy; 2026 Pushkar Kodigehalli Umesh.
+    </footer>
+  </div>
+
+  <script>
+    var el = document.getElementById("missing-path");
+    if (el && location.pathname && location.pathname !== "/") {
+      el.textContent = location.pathname;
+    }
+  </script>
+</body>
+</html>
