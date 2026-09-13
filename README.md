@@ -11,10 +11,32 @@ from `main`.
 | --- | --- |
 | `index.html` | The single-page portfolio |
 | `404.html` | Not-found page |
+| `privacy.html` | Privacy policy |
+| `cookies.html` | Cookie policy |
+| `terms.html` | Terms of use |
 | `styles.css` | All styling, including the responsive layout |
+| `fonts.css`, `fonts/` | Self-hosted webfonts (see below) |
 | `script.js` | Uptime counter, scramble-on-hover, stat count-up |
+| `_headers` | Security headers applied by Cloudflare Pages |
 | `sitemap.xml`, `robots.txt` | SEO basics |
 | `Pushkar_Resume_*.pdf` | Software/ML and hardware/embedded résumé variants |
+
+## Privacy posture
+
+The site loads **nothing from a third-party origin**. No analytics, no
+cookies, no storage, no embeds, no forms. Every stylesheet, script, image and
+font is served from this origin.
+
+The fonts matter here: loading them from `fonts.gstatic.com` would hand every
+visitor's IP address to Google on each page view, which is the one thing on a
+site this simple that actually needs a lawful basis. `fonts.css` points at
+`fonts/`, holding the latin and latin-ext subsets of JetBrains Mono and
+Instrument Serif — both SIL OFL 1.1, licence in `fonts/LICENSE.txt`.
+
+`_headers` sets a `default-src 'self'` CSP, so the browser *enforces* that
+claim rather than relying on it staying true by hand. If you ever add a
+genuinely necessary third-party resource, the CSP must be widened for it and
+`privacy.html` and `cookies.html` updated to match — in that order.
 
 ## Layout
 
@@ -40,3 +62,6 @@ Then open <http://localhost:8000>.
 ## Deploy
 
 Push to `main`; Cloudflare Pages builds and publishes automatically.
+
+`_headers` only takes effect on Pages — the local `http.server` above ignores
+it, so a CSP mistake will not show up in local preview.

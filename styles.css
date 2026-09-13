@@ -46,6 +46,21 @@ img {
   max-width: 100%;
 }
 
+/*  Visible to screen readers, invisible on screen. Used for the
+    "(opens in a new tab)" notes on external links. */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
 :focus-visible {
   outline: 2px solid var(--text);
   outline-offset: 3px;
@@ -323,7 +338,12 @@ img {
 }
 
 .arrow-link::after {
+  /*  Empty alt text: the arrow is decoration, and the link already says
+      "(opens in a new tab)" for screen readers. Plain `content` first so the
+      glyph still renders where the alt-text syntax isn't supported — an
+      unsupported declaration is dropped, not ignored. */
   content: "\2197";
+  content: "\2197" / "";
   display: inline-block;
   font-size: 0.7em;
   margin-left: 0.15em;
@@ -372,6 +392,8 @@ img {
 
 .item .title {
   font-size: 0.92rem;
+  font-weight: 400; /* these are <h3> for structure; keep the original weight */
+  line-height: 1.6;
   margin-bottom: 0.5rem;
 }
 
@@ -438,10 +460,208 @@ img {
   .col-right { display: block; }
   .fade-item { opacity: 1; transform: none; animation: none; }
   .photo { filter: none; }
-  .cursor, .arrow-link::after { display: none; }
+  .cursor { display: none; }
+  /*  Blank the arrow rather than display:none — the rule below reuses this
+      same pseudo-element to print each external link's URL. */
+  .arrow-link::after { content: ""; margin-left: 0; }
   .terminal { background: #fff; border-color: #999; }
   .name .dim, .stat-label, .item .num, .item .meta, .prompt,
   .term-out, .item .subtitle, .bio p { color: #333 !important; }
   .stat { border-left-color: #ccc; }
-  a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.7em; color: #555; }
+  a[href^="http"]::after { content: " (" attr(href) ")"; opacity: 1; font-size: 0.7em; color: #555; }
+}
+
+/* ===== LEGAL / PROSE PAGES ===== */
+/*  privacy.html, cookies.html, terms.html. Same tokens as the rest of the
+    site; just a single readable measure instead of the two-column grid. */
+.prose {
+  max-width: 46rem;
+}
+
+.prose .lede {
+  color: var(--muted-2);
+  font-size: 0.88rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose .updated {
+  font-size: 0.72rem;
+  color: var(--muted);
+  font-style: italic;
+  margin-bottom: 2.5rem;
+}
+
+.prose h2 {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--muted);
+  margin: 2.75rem 0 0.9rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.prose h2:first-of-type {
+  margin-top: 2rem;
+}
+
+.prose h3 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin: 1.75rem 0 0.5rem;
+}
+
+.prose p,
+.prose li {
+  font-size: 0.85rem;
+  line-height: 1.75;
+  color: var(--muted-2);
+}
+
+.prose p {
+  margin-bottom: 1rem;
+}
+
+.prose ul,
+.prose ol {
+  margin: 0 0 1rem 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.prose li::marker {
+  color: var(--muted);
+}
+
+.prose strong {
+  color: var(--text);
+  font-weight: 700;
+}
+
+/*  Inline links in prose need to read as links without the arrow glyph that
+    the standalone .arrow-link uses. */
+.prose p a,
+.prose li a {
+  border-bottom: 1px dotted rgba(255, 255, 255, 0.5);
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.prose p a:hover,
+.prose li a:hover {
+  color: #d4d4d4;
+  border-color: rgba(255, 255, 255, 1);
+}
+
+/*  Definition-style rows for "what is collected / why / how long". */
+.prose .rows {
+  display: grid;
+  gap: 0;
+  margin-bottom: 1rem;
+}
+
+.prose .row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.2rem 1.5rem;
+  padding: 0.9rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.prose .row:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+@media (min-width: 640px) {
+  .prose .row { grid-template-columns: 10.5rem minmax(0, 1fr); }
+}
+
+.prose .row dt {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  padding-top: 0.15rem;
+}
+
+.prose .row dd {
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: var(--muted-2);
+  margin: 0;
+}
+
+/* ===== SITE NAV (legal pages) ===== */
+.site-nav {
+  margin-bottom: 2.5rem;
+  font-size: 0.78rem;
+}
+
+.site-nav a {
+  color: var(--muted);
+  transition: color 0.2s;
+}
+
+.site-nav a:hover {
+  color: var(--text);
+}
+
+/* ===== FOOTER LINKS ===== */
+.page-footer .footer-links {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  margin-top: 0.6rem;
+}
+
+.page-footer .footer-links a {
+  color: var(--muted);
+  border-bottom: 1px dotted rgba(255, 255, 255, 0.25);
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.page-footer .footer-links a:hover {
+  color: var(--text);
+  border-color: rgba(255, 255, 255, 0.8);
+}
+
+@media (pointer: coarse) {
+  .page-footer .footer-links { gap: 0.25rem 1.25rem; }
+  .page-footer .footer-links a { display: inline-block; padding-block: 0.6rem; }
+}
+
+/*  Standalone links that aren't part of a sentence need a ~44px tap target on
+    touch (WCAG 2.5.8). Inline padding grows the hit box without shifting
+    layout, the same trick .arrow-link already uses. Links sitting inside a
+    paragraph are left alone — 2.5.8 exempts those. */
+@media (pointer: coarse) {
+  .site-nav a,
+  .prose .row dd a,
+  .term-out a { display: inline-block; padding-block: 0.55rem; }
+  .site-nav { margin-bottom: 2rem; }
+}
+
+/* ===== PRINT: LEGAL PAGES ===== */
+/*  Declared after the .prose rules above so it actually wins. Without this the
+    policy pages print as #ccc body text on white. */
+@media print {
+  .prose { max-width: none; }
+  .prose .lede,
+  .prose p,
+  .prose li,
+  .prose .row dd { color: #000 !important; }
+  .prose h2,
+  .prose h3,
+  .prose strong { color: #000 !important; }
+  .prose .updated,
+  .prose .row dt { color: #333 !important; }
+  .prose h2 { border-top-color: #ccc; }
+  .prose .row { border-top-color: #ccc; }
+  .prose .row:last-child { border-bottom-color: #ccc; }
+  .prose p a,
+  .prose li a { border-bottom-color: #666; }
+  .site-nav { display: none; }
+  .page-footer .footer-links a { color: #333; border-bottom-color: #999; }
 }
