@@ -20,13 +20,13 @@
       <h1 class="name">4<span class="dim">04</span></h1>
     </header>
 
-    <div class="terminal fade-item" style="animation-delay:.15s" aria-label="page not found">
+    <section class="terminal fade-item" style="animation-delay:.15s" aria-label="page not found">
       <div class="term-line"><span class="prompt">$</span> cd <span id="missing-path">/this-page</span></div>
       <div class="term-out">cd: no such file or directory</div>
       <div class="term-line"><span class="prompt">$</span> cd ~</div>
       <div class="term-out"><a href="/" class="arrow-link"><span class="underline-text">back home</span></a></div>
       <div class="term-line"><span class="prompt">$</span> <span class="cursor"></span></div>
-    </div>
+    </section>
 
     <footer class="page-footer fade-item" style="animation-delay:.3s">
       &copy; 2026 Pushkar Kodigehalli Umesh.
@@ -36,7 +36,9 @@
   <script>
     var el = document.getElementById("missing-path");
     if (el && location.pathname && location.pathname !== "/") {
-      el.textContent = location.pathname;
+      var p = location.pathname;
+      try { p = decodeURIComponent(p); } catch (e) { /* malformed %-escape, show raw */ }
+      el.textContent = p.length > 60 ? p.slice(0, 57) + "\u2026" : p;
     }
   </script>
 </body>

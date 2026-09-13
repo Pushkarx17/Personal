@@ -11,12 +11,17 @@
   --text: #ffffff;
   --muted: #888888;
   --muted-2: #cccccc;
+  --line: #1f1f1f;
   --max-w: 1600px;
+  --rail: clamp(320px, 26vw, 400px); /* left column width once the two-column layout kicks in */
+  --gutter: 1.25rem;  /* page side padding, scales up at wider breakpoints */
 }
 
 /* ===== BASE ===== */
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%; /* stop iOS inflating text in landscape */
+  text-size-adjust: 100%;
 }
 
 body {
@@ -26,7 +31,10 @@ body {
   font-size: 15px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+  /* `clip` prevents a stray horizontal scrollbar without making body a
+     scroll container the way `hidden` does (which breaks sticky + iOS). */
+  overflow-x: clip;
+  overflow-wrap: break-word;
 }
 
 a {
@@ -34,20 +42,30 @@ a {
   text-decoration: none;
 }
 
+img {
+  max-width: 100%;
+}
+
+:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
 /* ===== LAYOUT ===== */
 .page {
   max-width: var(--max-w);
   margin: 0 auto;
-  padding: 3rem 1.5rem 2rem;
+  padding: 3rem var(--gutter) 2rem;
 }
 
-@media (min-width: 768px) {
-  .page { padding: 4rem 3rem 2.5rem; }
-}
+@media (min-width: 480px)  { :root { --gutter: 1.5rem; } }
+@media (min-width: 768px)  { :root { --gutter: 2.5rem; } .page { padding-top: 4rem; padding-bottom: 2.5rem; } }
+@media (min-width: 1280px) { :root { --gutter: 3rem; } }
 
 .grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
   gap: 3rem;
   align-items: start;
 }
@@ -56,13 +74,45 @@ a {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  min-width: 0;
 }
 
+/*  Tablet / large phone landscape.
+    The single-column stack leaves the right half of the screen empty here, so
+    lift the photo and links alongside the terminal instead. */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .col-left {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "name  name"
+      "term  photo"
+      "bio   photo"
+      "links photo";
+    column-gap: 2.5rem;
+    row-gap: 2rem;
+    align-items: start;
+  }
+  .col-left > header      { grid-area: name; }
+  .col-left > .terminal   { grid-area: term; }
+  .col-left > .bio        { grid-area: bio; }
+  .col-left > .photo-wrap { grid-area: photo; }
+  .col-left > .elsewhere  { grid-area: links; }
+}
+
+/*  Laptop and up: fixed-ish left rail + fluid content well.
+    The old version spanned 4/12 and 7/12 of a twelve-column grid, which made
+    the content columns *narrower* at 1024px than they were at 834px. */
 @media (min-width: 1024px) {
-  .grid { grid-template-columns: repeat(12, 1fr); gap: 2rem; }
-  .col-left { grid-column: span 4; }
-  .col-spacer { grid-column: span 1; }
-  .col-right { grid-column: span 7; }
+  .grid {
+    grid-template-columns: var(--rail) minmax(0, 1fr);
+    column-gap: 4rem;
+    row-gap: 3rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .grid { column-gap: 5rem; }
 }
 
 /* ===== NAME ===== */
@@ -96,7 +146,7 @@ a {
 }
 
 .meta-block a {
-  display: inline-flex;
+  display: inline-block;
   margin-top: 0.3rem;
 }
 
@@ -147,25 +197,30 @@ a {
 /* ===== STATS ===== */
 .stats {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem 1.5rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem 1.25rem;
   margin-top: 4.5rem;
   padding-top: 2.5rem;
   border-top: 1px solid #1a1a1a;
 }
 
-@media (min-width: 640px) {
-  .stats { grid-template-columns: repeat(3, 1fr); }
+@media (min-width: 560px) {
+  .stats { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem 1.5rem; }
 }
 
-@media (min-width: 1024px) {
-  .stats { grid-template-columns: repeat(5, 1fr); }
+/*  Five across only once each cell can hold "countries lived in" on one line. */
+@media (min-width: 960px) {
+  .stats { grid-template-columns: repeat(5, minmax(0, 1fr)); }
 }
 
 .stat {
-  border-left: 1px solid #1f1f1f;
+  border-left: 1px solid var(--line);
   padding-left: 1.1rem;
   transition: border-color 0.3s ease;
+}
+
+@media (max-width: 379px) {
+  .stat { padding-left: 0.8rem; }
 }
 
 .stat:hover {
@@ -183,7 +238,7 @@ a {
 .stat-label {
   font-size: 0.65rem;
   text-transform: uppercase;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.12em;
   color: var(--muted);
   margin-top: 0.4rem;
 }
@@ -212,9 +267,14 @@ a {
   filter: grayscale(0%);
 }
 
-/* ===== ELSEWHERE / SECTION LABELS ===== */
-.elsewhere h3,
-.col-right h3 {
+/* Declared after the base rule so it actually wins (same specificity). */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .photo-wrap { max-width: 210px; }
+}
+
+/* ===== SECTION LABELS ===== */
+.elsewhere h2,
+.col-right h2 {
   font-size: 0.68rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -223,7 +283,7 @@ a {
   margin-bottom: 1rem;
 }
 
-.col-right h3 {
+.col-right h2 {
   margin-bottom: 2.5rem;
 }
 
@@ -235,11 +295,16 @@ a {
   font-size: 0.85rem;
 }
 
+.elsewhere a {
+  display: inline-block;
+}
+
 /* ===== LINKS (dotted underline + arrow) ===== */
+/*  `inline` (not inline-flex) so long link text can wrap inside a narrow
+    column instead of pushing past it. */
 .arrow-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.15rem;
+  display: inline;
+  padding-block: 0.18em; /* keeps the hit box ~24px; inline padding adds no layout shift */
   transition: color 0.2s;
 }
 
@@ -258,8 +323,10 @@ a {
 }
 
 .arrow-link::after {
-  content: "↗";
+  content: "\2197";
+  display: inline-block;
   font-size: 0.7em;
+  margin-left: 0.15em;
   opacity: 0.5;
   transform: translate(0, 0);
   transition: transform 0.3s ease, opacity 0.3s ease;
@@ -270,15 +337,23 @@ a {
   transform: translate(2px, -2px);
 }
 
-/* ===== RIGHT COLUMN / ENTRIES ===== */
-.col-right {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 3rem;
+/*  Coarse pointers: grow the standalone links to a ~44px tap target.
+    Links inline inside a sentence are left alone (WCAG 2.5.8 exempts them). */
+@media (pointer: coarse) {
+  .elsewhere ul { gap: 0.1rem; }
+  .elsewhere a,
+  .meta-block a { padding-block: 0.7rem; }
+  .meta-block a { margin-top: 0; }
 }
 
-@media (min-width: 640px) {
-  .col-right { grid-template-columns: 1fr 1fr; gap: 3rem; }
+/* ===== RIGHT COLUMN / ENTRIES ===== */
+/*  Driven by the space actually available rather than by viewport width, so
+    the columns can never get narrower as the screen gets wider. */
+.col-right {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  gap: 3rem clamp(2.25rem, 2.5vw, 3rem);
+  min-width: 0;
 }
 
 .item {
@@ -305,6 +380,7 @@ a {
   line-height: 1.7;
   color: var(--muted-2);
   margin-bottom: 0.4rem;
+  max-width: 46rem;
 }
 
 .item .meta {
@@ -337,22 +413,35 @@ a {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
   .fade-item {
     animation: none;
     opacity: 1;
     transform: none;
   }
-}
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 639px) {
-  .photo-wrap {
-    max-width: 150px;
-  }
+  .cursor { animation: none; }
 }
 
 /* ===== NARROW PAGE (404) ===== */
 .page-narrow {
   max-width: 40rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
+/* ===== PRINT ===== */
+@media print {
+  html, body { background: #fff; color: #000; }
+  .page { max-width: none; padding: 0; }
+  .grid { display: block; }
+  .col-right { display: block; }
+  .fade-item { opacity: 1; transform: none; animation: none; }
+  .photo { filter: none; }
+  .cursor, .arrow-link::after { display: none; }
+  .terminal { background: #fff; border-color: #999; }
+  .name .dim, .stat-label, .item .num, .item .meta, .prompt,
+  .term-out, .item .subtitle, .bio p { color: #333 !important; }
+  .stat { border-left-color: #ccc; }
+  a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.7em; color: #555; }
+}
