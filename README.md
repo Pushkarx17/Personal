@@ -38,6 +38,20 @@ claim rather than relying on it staying true by hand. If you ever add a
 genuinely necessary third-party resource, the CSP must be widened for it and
 `privacy.html` and `cookies.html` updated to match — in that order.
 
+**Keep Cloudflare Web Analytics disabled on this Pages project.** When it is
+on, Cloudflare injects a `static.cloudflareinsights.com` beacon into HTML
+responses — it is not in this repo, and a plain `curl` will not show it
+because injection is conditional on a browser-like request. Check with:
+
+```sh
+curl -sS -A "Mozilla/5.0 (Macintosh) Chrome/140" -H "Accept: text/html" \
+  https://pushkarku.com/ | grep -c cloudflareinsights   # must print 0
+```
+
+The CSP blocks the beacon even when it is injected, so no data is collected
+either way — but with it enabled, `privacy.html` and `cookies.html` are only
+true *because* of the CSP, which is a bad thing to be relying on.
+
 ## Layout
 
 Three states, driven by available space rather than device names:
