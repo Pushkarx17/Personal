@@ -5,8 +5,8 @@
 # means any stylesheet, font, image or request pointing off-origin is blocked
 # outright, so a third-party tracker cannot be introduced by accident.
 #
-# 'unsafe-inline' is present because of the JSON-LD block and the 404 page's
-# path script.
+# 'unsafe-inline' is present because the pages use inline style="" attributes
+# for the fade-in delays, the JSON-LD block, and the 404 page's path script.
 # There is no user input anywhere on this site, so there is no injection path
 # for those to be abused.
 

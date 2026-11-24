@@ -132,10 +132,12 @@ img {
 
 /* ===== NAME ===== */
 .name {
-  font-weight: 700;
-  font-size: clamp(1.6rem, 3.6vw, 2.2rem);
-  line-height: 1.2;
-  letter-spacing: -0.02em;
+  font-family: 'Instrument Serif', ui-serif, Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(2.1rem, 4.5vw, 2.9rem);
+  line-height: 1.15;
+  letter-spacing: 0.01em;
 }
 
 .name .dim {
@@ -170,6 +172,10 @@ img {
 
 /* ===== TERMINAL ===== */
 .terminal {
+  border: 1px solid #2e2e2e;
+  border-radius: 4px;
+  background: #141414;
+  padding: 1rem 1.1rem;
   font-size: 0.8rem;
   line-height: 1.7;
   max-width: 32rem;
@@ -203,6 +209,55 @@ img {
   50% { opacity: 0; }
 }
 
+/* ===== STATS ===== */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem 1.25rem;
+  margin-top: 4.5rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid #1a1a1a;
+}
+
+@media (min-width: 560px) {
+  .stats { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem 1.5rem; }
+}
+
+/*  Five across only once each cell can hold "countries lived in" on one line. */
+@media (min-width: 960px) {
+  .stats { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+}
+
+.stat {
+  border-left: 1px solid var(--line);
+  padding-left: 1.1rem;
+  transition: border-color 0.3s ease;
+}
+
+@media (max-width: 379px) {
+  .stat { padding-left: 0.8rem; }
+}
+
+.stat:hover {
+  border-color: rgba(255, 255, 255, 0.55);
+}
+
+.stat-num {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 700;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+.stat-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  margin-top: 0.4rem;
+}
+
 /* ===== PHOTO ===== */
 .photo-wrap {
   width: 100%;
@@ -232,12 +287,14 @@ img {
   .photo-wrap { max-width: 210px; }
 }
 
-/* ===== SECTION HEADINGS ===== */
+/* ===== SECTION LABELS ===== */
 .elsewhere h2,
 .col-right h2 {
-  font-size: 0.92rem;
+  font-size: 0.68rem;
   font-weight: 700;
-  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--muted);
   margin-bottom: 1rem;
 }
 
@@ -327,7 +384,7 @@ img {
   margin-bottom: 0;
 }
 
-.item .year {
+.item .num {
   font-size: 0.8rem;
   color: var(--muted);
   margin-bottom: 0.5rem;
@@ -366,8 +423,24 @@ img {
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: #333333; }
 
+/* ===== STAGGERED FADE-IN ===== */
+.fade-item {
+  opacity: 0;
+  transform: translateY(14px);
+  animation: fadeUp 0.6s ease forwards;
+}
+
+@keyframes fadeUp {
+  to { opacity: 1; transform: none; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  .fade-item {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
   .cursor { animation: none; }
 }
 
@@ -385,13 +458,16 @@ img {
   .page { max-width: none; padding: 0; }
   .grid { display: block; }
   .col-right { display: block; }
+  .fade-item { opacity: 1; transform: none; animation: none; }
   .photo { filter: none; }
   .cursor { display: none; }
   /*  Blank the arrow rather than display:none — the rule below reuses this
       same pseudo-element to print each external link's URL. */
   .arrow-link::after { content: ""; margin-left: 0; }
-  .name .dim, .item .year, .item .meta, .prompt,
+  .terminal { background: #fff; border-color: #999; }
+  .name .dim, .stat-label, .item .num, .item .meta, .prompt,
   .term-out, .item .subtitle, .bio p { color: #333 !important; }
+  .stat { border-left-color: #ccc; }
   a[href^="http"]::after { content: " (" attr(href) ")"; opacity: 1; font-size: 0.7em; color: #555; }
 }
 
@@ -416,9 +492,11 @@ img {
 }
 
 .prose h2 {
-  font-size: 0.92rem;
+  font-size: 0.68rem;
   font-weight: 700;
-  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--muted);
   margin: 2.75rem 0 0.9rem;
   padding-top: 1.5rem;
   border-top: 1px solid var(--line);
@@ -500,7 +578,9 @@ img {
 }
 
 .prose .row dt {
-  font-size: 0.8rem;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
   color: var(--muted);
   padding-top: 0.15rem;
 }

@@ -26,6 +26,25 @@ function scrambleOnHover(el) {
   });
 }
 
+function countUp(el) {
+  const raw = el.textContent.trim();
+  const match = raw.match(/^(\d+)(.*)$/);
+  if (!match) return;
+  const target = parseInt(match[1], 10);
+  const suffix = match[2];
+  const duration = 1000;
+  const start = performance.now();
+  el.textContent = "0" + suffix;
+
+  function tick(now) {
+    const p = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - p, 3);
+    el.textContent = Math.round(eased * target) + suffix;
+    if (p < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+
 function updateUptime() {
   const el = document.getElementById("uptime");
   if (!el) return;
@@ -56,9 +75,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-  // Only wire up the scramble where a mouse can hover. On touch,
+  // Only wire up the scramble where a real pointer can hover. On touch,
   // `mouseenter` fires on tap and garbles the label as you navigate away.
   if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
     document.querySelectorAll(".scramble").forEach(scrambleOnHover);
+  }
+
+  const stats = document.querySelectorAll(".stat-num");
+  if (stats.length && "IntersectionObserver" in window) {
+    const seen = new WeakSet();
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !seen.has(entry.target)) {
+          seen.add(entry.target);
+          countUp(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    stats.forEach((el) => observer.observe(el));
   }
 });
