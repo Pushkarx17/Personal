@@ -16,7 +16,7 @@ from `main`.
 | `terms.html` | Terms of use |
 | `styles.css` | All styling, including the responsive layout |
 | `fonts.css`, `fonts/` | Self-hosted webfonts (see below) |
-| `script.js` | Uptime counter, scramble-on-hover, stat count-up |
+| `script.js` | Uptime counter and scramble-on-hover |
 | `_headers` | Security headers applied by Cloudflare Pages |
 | `sitemap.xml`, `robots.txt` | SEO basics |
 | `Pushkar_Resume_*.pdf` | Software/ML and hardware/embedded résumé variants |
@@ -30,8 +30,8 @@ font is served from this origin.
 The fonts matter here: loading them from `fonts.gstatic.com` would hand every
 visitor's IP address to Google on each page view, which is the one thing on a
 site this simple that actually needs a lawful basis. `fonts.css` points at
-`fonts/`, holding the latin and latin-ext subsets of JetBrains Mono and
-Instrument Serif — both SIL OFL 1.1, licence in `fonts/LICENSE.txt`.
+`fonts/`, holding the latin and latin-ext subsets of JetBrains Mono (SIL OFL 1.1,
+licence in `fonts/LICENSE.txt`).
 
 `_headers` sets a `default-src 'self'` CSP, so the browser *enforces* that
 claim rather than relying on it staying true by hand. If you ever add a

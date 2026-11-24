@@ -1,16 +1,12 @@
-The webfonts in this directory are redistributed under the SIL Open Font
-License, Version 1.1. Both are unmodified subsets (latin, latin-ext) of the
-versions published on Google Fonts.
+The webfont in this directory is redistributed under the SIL Open Font
+License, Version 1.1. It is an unmodified subset (latin, latin-ext) of the
+version published on Google Fonts.
 
   JetBrains Mono
   Copyright 2020 The JetBrains Mono Project Authors
   https://github.com/JetBrains/JetBrainsMono
 
-  Instrument Serif
-  Copyright 2022 The Instrument Serif Project Authors
-  https://github.com/Instrument/instrument-serif
-
-Both are covered by the identical licence text reproduced in full below.
+It is covered by the licence text reproduced in full below.
 
 --------------------------------------------------------------------------
 
